@@ -20,15 +20,12 @@ class Counter extends React.Component{
         return(
             <div>
                 <h1>Welcome to Count Game</h1>
-                <button onClick = {this.increment}>Increment!</button>
+                <Increment eventHandle = {this.increment}/>
                 <span>&nbsp; &nbsp;</span>
-                <button onClick = {this.decrement}>Decrement!</button>
+                <Decrement eventHandle = {this.decrement}/>
                 <span>&nbsp; &nbsp;</span>
-                <button onClick = {this.reset}>Reset</button>
+                <Reset eventHandle = {this.reset}/>
                 <br/>
-                <button onClick = {this.increment}>Increment By 1</button>
-                <span>&nbsp; &nbsp;</span>
-                <button onClick = {this.reset}>Reset</button>
                 <Result count = {this.state.count}/>
             </div>
         );
@@ -38,8 +35,26 @@ class Counter extends React.Component{
 const Result = function(props){
     return(
         <div>
-            Count is {props.count}
+            <br/>
+            <h2>Counter : {props.count}</h2>
         </div>
+    );
+}
+const Increment = function(props){
+    return(
+            <button onClick = {props.eventHandle}>Increment!</button>
+        );
+}
+
+const Decrement = function(props){
+        return(
+            <button onClick = {props.eventHandle}>Decrement!</button>
+        );
+    }
+
+const Reset = function(props){
+    return(
+        <button onClick = {props.eventHandle}>Reset!</button>
     );
 }
 
